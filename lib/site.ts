@@ -143,6 +143,12 @@ export const REFERENCIAS = [
   { titulo: "Centro Preventório Infantil", local: "Rocha Pinto, Luanda" },
   { titulo: "Moageiras e escritório", local: "Cuanza Sul e Cabinda" },
 ]
+export const LEGAL_LINKS = [
+  { href: "/privacidade", label: "Política de Privacidade" },
+  { href: "/termos", label: "Termos de Utilização" },
+  { href: "/cookies", label: "Política de Cookies" },
+]
+
 export const CLIENTES = [
   "Sonangol",
   "SonAir",

@@ -7,6 +7,9 @@ const MOBILE_MAP: Record<string, string> = {
   "/obras": "/m/obras",
   "/arquitectura": "/m/arquitectura",
   "/contactos": "/m/contactos",
+  "/privacidade": "/m/privacidade",
+  "/termos": "/m/termos",
+  "/cookies": "/m/cookies",
 }
 
 const MOBILE_UA =

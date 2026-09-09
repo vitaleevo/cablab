@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import { CONTACTOS, NAV } from "@/lib/site"
+import { CONTACTOS, LEGAL_LINKS, NAV } from "@/lib/site"
 export function SiteFooter() {
   return (
     <footer className="bg-navy text-white/75">
@@ -72,9 +72,13 @@ export function SiteFooter() {
       <div className="border-t border-white/15">
         <div className="site-container flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <p>© {new Date().getFullYear()} CABLAB SU Angola.</p>
-          <Link href="/contactos#privacidade" className="hover:text-white">
-            Privacidade e contacto
-          </Link>
+          <nav aria-label="Informação legal" className="flex flex-wrap gap-x-4 gap-y-2">
+            {LEGAL_LINKS.map((item) => (
+              <Link key={item.href} href={item.href} className="hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>

@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Phone } from "lucide-react"
 import { MobileTabBar } from "@/components/mobile-tabbar"
-import { CONTACTOS } from "@/lib/site"
+import { CONTACTOS, LEGAL_LINKS } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Versão mobile",
@@ -35,7 +35,14 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
         </div>
       </header>
       <main>{children}</main>
-      <p className="px-4 pt-8 text-center text-xs text-muted-foreground">
+      <nav aria-label="Informação legal" className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4 pt-8 text-xs text-muted-foreground">
+        {LEGAL_LINKS.map((item) => (
+          <Link key={item.href} href={`/m${item.href}`} className="underline">
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+      <p className="px-4 pt-4 text-center text-xs text-muted-foreground">
         <Link href="/?site=desktop" className="underline">
           Ver site completo
         </Link>

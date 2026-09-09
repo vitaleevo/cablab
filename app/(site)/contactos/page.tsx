@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
 import { CheckList, Faq, PageIntro, SectionHeading } from "@/components/content-sections"
@@ -126,7 +127,11 @@ export default function Contactos() {
               Os campos deste formulário são tratados no seu navegador e não são guardados numa base
               de dados do site. Ao abrir WhatsApp ou email, o texto é transferido para o serviço
               escolhido, onde confirma o envio. Os serviços externos seguem as suas próprias
-              condições de privacidade.
+              condições de privacidade. Leia a{" "}
+              <Link className="underline" href="/privacidade">
+                Política de Privacidade
+              </Link>
+              .
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
               Os links de localização abrem o Google Maps apenas quando os seleciona. Para questões
