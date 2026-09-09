@@ -1,8 +1,5 @@
 import type { Metadata } from "next"
 import "./globals.css"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
-import { WhatsAppFloat } from "@/components/whatsapp-float"
 
 export const metadata: Metadata = {
   title: { default: "CABLAB — Engenharia civil e arquitectura em Angola", template: "%s — CABLAB" },
@@ -19,23 +16,11 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
 }
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-AO">
-      <body className="flex min-h-dvh flex-col">
-        <a
-          href="#conteudo"
-          className="sr-only z-50 bg-white p-4 text-navy focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
-        >
-          Saltar para o conteúdo
-        </a>
-        <SiteHeader />
-        <main id="conteudo" tabIndex={-1} className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
-        <WhatsAppFloat />
-      </body>
+      <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   )
 }
