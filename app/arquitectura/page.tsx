@@ -1,49 +1,114 @@
 import type { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-
+import {
+  CheckList,
+  ContactCta,
+  Faq,
+  PageIntro,
+  SectionHeading,
+} from "@/components/content-sections"
+import { ProjectGallery } from "@/components/project-gallery"
+import { OBRAS } from "@/lib/site"
 export const metadata: Metadata = {
-  title: "Arquitectura",
+  title: "Arquitectura e topografia",
   description:
-    "Arquitectura CABLAB: implantação de conjuntos habitacionais, tipologias residenciais, volumetria 3D e topografia.",
+    "Projectos de arquitectura, implantação de conjuntos habitacionais, tipologias residenciais, visualização 3D e topografia CABLAB.",
+  alternates: { canonical: "/arquitectura" },
 }
-
-const PROJECTOS = [
-  { img: "/img/obra-14.jpeg", titulo: "IMPLANTAÇÃO 3D", desc: "Conjunto habitacional — visualização." },
-  { img: "/img/obra-15.jpeg", titulo: "TIPOLOGIA RESIDENCIAL", desc: "Proposta residencial em imagem 3D." },
-  { img: "/img/obra-10.jpeg", titulo: "VOLUMETRIA E FACHADAS", desc: "Estudos de volumetria e fachadas." },
-  { img: "/img/obra-17.jpeg", titulo: "PROJECTO RESIDENCIAL", desc: "Proposta em imagem 3D." },
-]
-
 export default function Arquitectura() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-14">
-      <p className="text-center text-[11px] font-bold tracking-[0.3em] text-muted-foreground">
-        PROJECTOS <span className="text-brand-dark">3D</span>
-      </p>
-      <h1 className="mt-1.5 text-center text-3xl font-light md:text-4xl">Arquitectura e topografia</h1>
-      <p className="mx-auto mt-6 max-w-3xl text-center text-neutral-700">
-        Elaboração de projectos de arquitectura e serviços de topografia: implantação de
-        conjuntos habitacionais, tipologias residenciais, volumetria e fachadas em 3D.
-      </p>
-      <div className="mt-8 grid gap-5 md:grid-cols-2">
-        {PROJECTOS.map((p) => (
-          <Card key={p.img} className="pt-0">
-            <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
-              <Image src={p.img} alt={p.titulo} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
-            </div>
-            <CardHeader>
-              <CardTitle>{p.titulo}</CardTitle>
-              <CardDescription>{p.desc}</CardDescription>
-            </CardHeader>
-          </Card>
-        ))}
-      </div>
-      <p className="mt-8 text-center">
-        <Button size="lg" className="rounded-sm bg-brand px-7 font-extrabold tracking-widest text-ink hover:bg-brand-dark" render={<Link href="/contactos">FALAR SOBRE O MEU PROJECTO</Link>} />
-      </p>
-    </section>
+    <>
+      <PageIntro
+        eyebrow="Arquitectura"
+        title="Antes de construir, imagine as possibilidades."
+        description="Organizamos ideias, estudamos espaços e damos forma ao seu projecto através da arquitectura, da topografia e da visualização 3D."
+        image="/img/obra-19.jpeg"
+      />
+      <section className="site-container section-space">
+        <SectionHeading
+          eyebrow="Da ideia ao desenho"
+          title="Pensar o espaço como um todo."
+          description="A forma, os acessos e a relação com o terreno fazem parte da mesma conversa. O âmbito de cada estudo é definido de acordo com as necessidades do projecto."
+        />
+        <div className="grid gap-8 md:grid-cols-3">
+          {[
+            {
+              title: "Arquitectura",
+              desc: "Estudos para organizar os espaços e dar resposta à sua utilização.",
+              items: [
+                "Tipologias residenciais",
+                "Volumetria e fachadas",
+                "Implantação de conjuntos",
+              ],
+            },
+            {
+              title: "Visualização 3D",
+              desc: "Imagens que tornam a proposta mais fácil de compreender antes da execução.",
+              items: [
+                "Perspectivas exteriores",
+                "Leitura de volumes e materiais",
+                "Estudos de conjuntos habitacionais",
+              ],
+            },
+            {
+              title: "Topografia",
+              desc: "Informação sobre o terreno para apoiar as decisões de projecto.",
+              items: [
+                "Enquadramento da intervenção",
+                "Elementos para implantação",
+                "Âmbito técnico definido na proposta",
+              ],
+            },
+          ].map((item, i) => (
+            <article key={item.title} className="rounded-md border bg-surface p-8">
+              <span className="text-3xl font-semibold text-brand-ink">0{i + 1}</span>
+              <h3 className="mt-6">{item.title}</h3>
+              <p className="mt-4 mb-6 text-sm text-muted-foreground">{item.desc}</p>
+              <CheckList items={item.items} />
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="bg-surface">
+        <div className="site-container section-space">
+          <SectionHeading
+            eyebrow="Estudos e propostas"
+            title="Uma visão do que pode vir a ser."
+            description="Visualizações de arquitectura do portfólio CABLAB. Estas imagens representam propostas 3D e não fotografias de obras concluídas."
+          />
+          <ProjectGallery items={OBRAS.filter((item) => item.cat === "projecto")} />
+        </div>
+      </section>
+      <section className="site-container section-space grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <SectionHeading
+          eyebrow="Preparar o seu projecto"
+          title="Uma boa ideia começa com as perguntas certas."
+        />
+        <Faq
+          items={[
+            {
+              question: "Já preciso de ter o terreno?",
+              answer:
+                "Pode iniciar a conversa ainda na fase de ideia. Para desenvolver um projecto ajustado ao local, a equipa precisará de informações sobre o terreno e as condições da intervenção.",
+            },
+            {
+              question: "Que elementos devo levar para a primeira conversa?",
+              answer:
+                "Localização, dimensão aproximada, utilização pretendida, referências visuais e prioridades. Se existirem plantas ou levantamentos, mencione-os à equipa.",
+            },
+            {
+              question: "O que está incluído no projecto?",
+              answer:
+                "Os estudos, desenhos e visualizações a entregar são acordados na proposta. Confirme também o número de revisões, os prazos e eventuais serviços complementares.",
+            },
+            {
+              question: "Posso contratar a construção depois do projecto?",
+              answer:
+                "A CABLAB actua em arquitectura e construção civil. A equipa pode analisar a continuidade para a fase de obra e apresentar o respectivo âmbito e condições.",
+            },
+          ]}
+        />
+      </section>
+      <ContactCta title="A sua ideia merece um bom ponto de partida." />
+    </>
   )
 }

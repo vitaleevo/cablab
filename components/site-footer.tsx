@@ -1,50 +1,80 @@
+import Image from "next/image"
 import Link from "next/link"
-import { CONTACTOS } from "@/lib/site"
-
+import { ArrowUpRight } from "lucide-react"
+import { CONTACTOS, NAV } from "@/lib/site"
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-neutral-400">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm md:grid-cols-3">
+    <footer className="bg-navy text-white/75">
+      <div className="site-container grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.1fr]">
         <div>
-          <h3 className="mb-2 text-base font-bold text-white">CABLAB</h3>
-          <p>
-            Engenharia civil e arquitectura.
-            <br />
-            {CONTACTOS.endereco}.
+          <Link href="/" aria-label="CABLAB — página inicial">
+            <Image
+              src="/logo-cablab.png"
+              alt="Logótipo CABLAB"
+              width={1080}
+              height={1080}
+              className="h-14 w-auto"
+            />
+          </Link>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed">
+            Engenharia civil e arquitectura em Angola. Construímos espaços e desenvolvemos projectos
+            com uma visão de futuro.
           </p>
-        </div>
-        <div>
-          <h3 className="mb-2 text-base font-bold text-white">Contactos</h3>
-          <p>
-            <Link href={`mailto:${CONTACTOS.email1}`} className="text-white hover:underline">
-              {CONTACTOS.email1}
-            </Link>
-            <br />
-            <Link href={`mailto:${CONTACTOS.email2}`} className="text-white hover:underline">
-              {CONTACTOS.email2}
-            </Link>
-            <br />
-            <Link href={CONTACTOS.tel1Href} className="text-white hover:underline">
-              {CONTACTOS.tel1}
-            </Link>
-            <br />
-            <Link href={CONTACTOS.tel2Href} className="text-white hover:underline">
-              {CONTACTOS.tel2}
-            </Link>
-          </p>
-        </div>
-        <div>
-          <h3 className="mb-2 text-base font-bold text-white">Empresa</h3>
-          <p>
+          <p className="mt-6 text-xs">
             Desde 2020 · Alvará Classe 6<br />
             NIF {CONTACTOS.nif}
-            <br />
-            <Link href="/sobre" className="text-white hover:underline">Sobre</Link>
-            {" · "}
-            <Link href="/obras" className="text-white hover:underline">Obras</Link>
-            {" · "}
-            <Link href="/contactos" className="text-white hover:underline">Contactos</Link>
           </p>
+        </div>
+        <div>
+          <h2 className="text-base font-semibold text-white">Explore</h2>
+          <nav aria-label="Navegação do rodapé" className="mt-4 grid gap-3 text-sm">
+            {NAV.map((item) => (
+              <Link key={item.href} href={item.href} className="w-fit hover:text-brand">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <div>
+          <h2 className="text-base font-semibold text-white">Fale connosco</h2>
+          <address className="mt-4 space-y-3 text-sm not-italic">
+            <p>
+              <a href={CONTACTOS.tel1Href} className="hover:text-brand">
+                {CONTACTOS.tel1}
+              </a>
+              <br />
+              <a href={CONTACTOS.tel2Href} className="hover:text-brand">
+                {CONTACTOS.tel2}
+              </a>
+            </p>
+            <p>
+              <a href={`mailto:${CONTACTOS.email1}`} className="hover:text-brand">
+                {CONTACTOS.email1}
+              </a>
+              <br />
+              <a href={`mailto:${CONTACTOS.email2}`} className="hover:text-brand">
+                {CONTACTOS.email2}
+              </a>
+            </p>
+            <p>{CONTACTOS.endereco}</p>
+            <a
+              href={CONTACTOS.mapa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-brand"
+            >
+              Ver localização aproximada
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </address>
+        </div>
+      </div>
+      <div className="border-t border-white/15">
+        <div className="site-container flex flex-col gap-2 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <p>© {new Date().getFullYear()} CABLAB SU Angola.</p>
+          <Link href="/contactos#privacidade" className="hover:text-white">
+            Privacidade e contacto
+          </Link>
         </div>
       </div>
     </footer>
