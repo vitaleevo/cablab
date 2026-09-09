@@ -2,7 +2,7 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { ContactForm } from "@/components/contact-form"
 import { CONTACTOS } from "@/lib/site"
 
-export const metadata = { title: "Contactos e orçamentos" }
+export const metadata = { title: "Contactos e orçamentos", alternates: { canonical: "/contactos" } }
 
 export default function MobileContactos() {
   return (

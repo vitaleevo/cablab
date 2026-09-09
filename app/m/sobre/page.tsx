@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 import { CheckList } from "@/components/content-sections"
 import { CONTACTOS } from "@/lib/site"
 
-export const metadata = { title: "Sobre nós" }
+export const metadata = { title: "Sobre nós", alternates: { canonical: "/sobre" } }
 
 export default function MobileSobre() {
   return (

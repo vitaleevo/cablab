@@ -1,7 +1,7 @@
 import { ProjectGallery } from "@/components/project-gallery"
 import { OBRAS, REFERENCIAS } from "@/lib/site"
 
-export const metadata = { title: "Obras e portfólio" }
+export const metadata = { title: "Obras e portfólio", alternates: { canonical: "/obras" } }
 
 export default function MobileObras() {
   return (

@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     images: [{ url: "/img/obra-01.jpeg", alt: "Moradias do portfólio CABLAB" }],
   },
   twitter: { card: "summary_large_image" },
+}
+
+export const viewport: Viewport = {
+  themeColor: "#102c40",
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowRight, MessageCircle, Phone } from "lucide-react"
 import { CLIENTES, CONTACTOS, OBRAS, SERVICOS } from "@/lib/site"
 
-export const metadata = { title: "CABLAB mobile" }
+export const metadata = { title: "CABLAB mobile", alternates: { canonical: "/" } }
 
 export default function MobileHome() {
   return (

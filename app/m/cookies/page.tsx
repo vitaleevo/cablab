@@ -1,6 +1,6 @@
 import { CookiesContent } from "@/components/legal-content"
 
-export const metadata = { title: "Política de Cookies" }
+export const metadata = { title: "Política de Cookies", alternates: { canonical: "/cookies" } }
 
 export default function MobileCookies() {
   return (

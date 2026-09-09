@@ -1,6 +1,6 @@
 import { TermosContent } from "@/components/legal-content"
 
-export const metadata = { title: "Termos de Utilização" }
+export const metadata = { title: "Termos de Utilização", alternates: { canonical: "/termos" } }
 
 export default function MobileTermos() {
   return (

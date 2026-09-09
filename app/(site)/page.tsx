@@ -9,12 +9,17 @@ import {
   SectionHeading,
 } from "@/components/content-sections"
 import { SERVICOS } from "@/lib/site"
+import { CABLAB_JSON_LD } from "@/lib/seo"
 
 export const metadata = { alternates: { canonical: "/" } }
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(CABLAB_JSON_LD) }}
+      />
       <section className="relative overflow-hidden bg-navy text-white">
         <div className="grid lg:min-h-[620px] lg:grid-cols-[1fr_1fr]">
           <div className="relative z-10 flex flex-col justify-center px-6 py-16 sm:px-12 lg:py-24 lg:pl-[max(2rem,calc((100vw-1200px)/2))]">

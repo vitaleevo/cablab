@@ -169,7 +169,7 @@ export function TermosContent() {
       </P>
       <H>6. Limitação de responsabilidade</H>
       <P>
-        O site é disponibilizado "como está". A CABLAB adopta medidas razoáveis de segurança e
+        O site é disponibilizado &quot;como está&quot;. A CABLAB adopta medidas razoáveis de segurança e
         exactidão, mas não garante disponibilidade ininterrupta nem ausência de erros, nem responde
         por danos resultantes do uso de serviços externos activados pelo utilizador.
       </P>

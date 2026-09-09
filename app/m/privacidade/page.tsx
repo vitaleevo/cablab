@@ -1,6 +1,6 @@
 import { PrivacidadeContent } from "@/components/legal-content"
 
-export const metadata = { title: "Política de Privacidade" }
+export const metadata = { title: "Política de Privacidade", alternates: { canonical: "/privacidade" } }
 
 export default function MobilePrivacidade() {
   return (

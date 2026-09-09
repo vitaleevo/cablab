@@ -2,7 +2,7 @@ import { ProjectGallery } from "@/components/project-gallery"
 import { CheckList } from "@/components/content-sections"
 import { OBRAS } from "@/lib/site"
 
-export const metadata = { title: "Arquitectura e topografia" }
+export const metadata = { title: "Arquitectura e topografia", alternates: { canonical: "/arquitectura" } }
 
 export default function MobileArquitectura() {
   return (
