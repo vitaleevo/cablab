@@ -19,7 +19,7 @@ const contentSecurityPolicy = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
-    localPatterns: [{ pathname: "/img/**", search: "" }],
+    localPatterns: [{ pathname: "/img/**", search: "" }, { pathname: "/logo-cablab.png", search: "" }],
     remotePatterns: [],
     formats: ["image/webp"],
   },
